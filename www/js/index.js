@@ -44,4 +44,3 @@ var app = {
 };
 
 app.initialize();
-

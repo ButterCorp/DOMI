@@ -43,6 +43,7 @@
                 <p class="event received">Device is Ready</p>
             </div>
             <button onclick="testVoix();" />Test Voix</button>
+            <input id="aaaa" value="syani"/>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -52,14 +53,26 @@
 
                 console.log('rentré');
 
-                window.plugins.speechRecognition.isRecognitionAvailable(function(available){
-    
-                    if(available){
-                        console.log(available);
-                    }
-                    }, function(err){
-                    console.error(err);
-                });
+                var language = "fr-FR";
+                var matches = 5;
+                var prompt = "";
+                var showPopup = true;
+                var showPartial = false;
+
+                let options = {
+                    language,
+                    matches,
+                    prompt,      // Android only
+                    showPopup,  // Android only
+                    showPartial 
+                }
+
+                window.plugins.speechRecognition.startListening(function(successCallback){
+                    document.getElementById('aaaa').value = "ssass";
+                }, 
+                function(errorCallback){
+                    document.getElementById('aaaa').value = "error";
+                }, options)
 
             }
             
