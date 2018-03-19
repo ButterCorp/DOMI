@@ -10,11 +10,13 @@
     "author": "Apache Cordova Team",
     "license": "Apache-2.0",
     "dependencies": {
-        "cordova-plugin-speechrecognition": "^1.2.0"
+        "cordova-plugin-speechrecognition": "^1.2.0",
+        "cordova-plugin-whitelist": "1"
     },
     "cordova": {
         "plugins": {
-            "cordova-plugin-speechrecognition": {}
+            "cordova-plugin-speechrecognition": {},
+            "cordova-plugin-whitelist": {}
         }
     }
 }
