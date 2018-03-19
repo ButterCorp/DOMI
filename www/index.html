@@ -43,7 +43,12 @@
                 <p class="event received">Device is Ready</p>
             </div>
             <button onclick="testVoix();" />Test Voix</button>
-            <input id="aaaa" value="syani"/>
+            <input id="a" value="syani"/>
+            <input id="b" value="syani"/>
+            <input id="c" value="syani"/>
+            <input id="d" value="syani"/>
+            <input id="e" value="syani"/>
+            <input id="f" value="syani"/>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -68,10 +73,15 @@
                 }
 
                 window.plugins.speechRecognition.startListening(function(successCallback){
-                    document.getElementById('aaaa').value = "ssass";
+                    document.getElementById('a').value = language;
+                    document.getElementById('b').value = matches;
+                    document.getElementById('c').value = prompt;
+                    document.getElementById('d').value = showPopup;
+                    document.getElementById('e').value = showPartial;
+                    document.getElementById('f').value = successCallback;
                 }, 
                 function(errorCallback){
-                    document.getElementById('aaaa').value = "error";
+                    document.getElementById('a').value = "error";
                 }, options)
 
             }
