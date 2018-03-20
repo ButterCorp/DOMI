@@ -118,11 +118,11 @@
                     showPopup,  // Android only
                     showPartial
                 }
-                
+
                 try {     
 
                     ApiAIPlugin.levelMeterCallback(function(level) {
-                        console.log(level);
+                        alert(level);
                     }); 
 
                     window.plugins.speechRecognition.startListening(function(successCallback){
@@ -141,6 +141,9 @@
                             alert(error);
                         });
 
+                    },
+                    function(errorCallback){
+                        document.getElementById('a').value = "error";
                     }, options);
                                     
                 } catch (e) {
