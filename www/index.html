@@ -104,6 +104,21 @@
             }
 
             function sendVoice2() {
+
+                var language = "fr-FR";
+                var matches = 1;
+                var prompt = "";
+                var showPopup = true;
+                var showPartial = false;
+
+                let options = {
+                    language,
+                    matches,
+                    prompt,      // Android only
+                    showPopup,  // Android only
+                    showPartial
+                }
+                
                 try {     
 
                     ApiAIPlugin.levelMeterCallback(function(level) {
@@ -126,7 +141,7 @@
                             alert(error);
                         });
 
-                    });
+                    }, options);
                                     
                 } catch (e) {
                     alert(e);
