@@ -112,6 +112,8 @@
 
                     window.plugins.speechRecognition.startListening(function(successCallback){
 
+                        document.getElementById('voice').value = successCallback;
+
                         ApiAIPlugin.requestVoice({
                             query: successCallback
                         }, 
