@@ -78,7 +78,7 @@
                 var passwd = $('#mdp').val()          
 
 
-                $.post('http://antoine-lucas.fr/hackathon/insert_user.php', { id: randId, name: nom, prenom: prenom, email: email, password:passwd})
+                $.post('http://antoine-lucas.fr/hackathon/insert_user.php', { id: randId, name: nom, prenom: prenom, email: email, password: passwd})
                     .done(function(data){
 
                         localStorage.setItem('id', randId);
