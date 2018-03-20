@@ -66,23 +66,23 @@
 
                     document.getElementById('voice').value = successCallback;
 
-                    function sendVoice() {
-                        try {     
-                          ApiAIPlugin.requestVoice(
-                            {
-                                query:successCallback
-                            }, 
-                            function (response) {
-                                // place your result processing here
-                                alert(JSON.stringify(response));
-                            },
-                            function (error) {
-                                // place your error processing here
-                                alert(error);
-                            });                
-                        } catch (e) {
-                            alert(e);
-                        }
+                    try {     
+                      ApiAIPlugin.requestVoice(
+                        {
+                            query:successCallback
+                        }, 
+                        function (response) {
+
+
+                            // place your result processing here
+                            alert(JSON.stringify(response));
+                        },
+                        function (error) {
+                            // place your error processing here
+                            alert(error);
+                        });                
+                    } catch (e) {
+                        alert(e);
                     }
 
                 }, 
