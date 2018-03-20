@@ -47,7 +47,7 @@
             </div>
 
             <div class="row" style="margin-top:50px;">
-                <a id="main_nav" href="inscription.html" class="btnOrange" style="margin-bottom:20px;">S'INSCRIRE</a>
+                <a id="main_nav" href="panel.html" class="btnOrange" style="margin-bottom:20px;">S'INSCRIRE</a>
             </div>
         </div>
             
@@ -71,6 +71,23 @@
                     $('#verif').css('display', 'block');
                 }
 
+                var randId = Math.floor(Math.random() * 1000000000) + 1;
+                var nom = $('#nom').val();
+                var prenom = $('#prenom').val();
+                var email = $('#email').val();
+                var passwd = $('#mdp').val()          
+
+
+                $.post('http://antoine-lucas.fr/hackathon/insert_user.php', { id: randId, name: nom, prenom: prenom, email: email, password:passwd})
+                    .done(function(data){
+
+                        localStorage.setItem('id', randId);
+
+                        localStorage.setItem('completeName', prenom);
+
+                        window.location = href;
+
+                    });
             });
 
         </script>
