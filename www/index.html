@@ -85,19 +85,17 @@
                     }); 
 
                     ApiAIPlugin.setListeningStartCallback(function () {
-                       alert('écoute');
+                       // Ici ça get la voix
                     });
 
                     ApiAIPlugin.requestVoice(
-                    {
-                        query: "Bonjour"
-                    }, 
+                    {}, 
                     function (response) {    
-                        // place your result processing here
+                        
                         alert(JSON.stringify(response));
                     },
                     function (error) {
-                        // place your error processing here
+                        
                         alert(error);
                     });                
                 } catch (e) {
@@ -105,7 +103,7 @@
                 }
             }
 
-            function sendText() {
+            /*function sendText() {
                 try {
                     ApiAIPlugin.requestText(
                         {
@@ -122,7 +120,7 @@
                 } catch (e) {
                     alert(e);
                 }
-            }
+            }*/
             
         </script>
     </body>
