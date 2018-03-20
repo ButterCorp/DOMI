@@ -39,6 +39,8 @@
         <div class="app">
 
             <button onclick="sendVoice();" />Test Send Voice</button>
+
+            <button onclick="sendText();" />Test sendText</button>
           
             <button onclick="testVoix();" />Test Voix</button>
 
@@ -87,6 +89,25 @@
                         // place your error processing here
                         alert(error);
                     });                
+                } catch (e) {
+                    alert(e);
+                }
+            }
+
+            function sendText() {
+                try {
+                    ApiAIPlugin.requestText(
+                        {
+                            query: "Bonjour"
+                        },
+                        function (response) {
+                            // place your result processing here
+                            alert(JSON.stringify(response));
+                        },
+                        function (error) {
+                            // place your error processing here
+                            alert(error);
+                        });
                 } catch (e) {
                     alert(e);
                 }
