@@ -49,6 +49,7 @@
             <textarea id="ta"></textarea>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script>
         
@@ -115,24 +116,18 @@
                 }
             }
 
-            /*function sendText() {
-                try {
-                    ApiAIPlugin.requestText(
-                        {
-                            query: "Bonjour"
-                        },
-                        function (response) {
-                            // place your result processing here
-                            alert(JSON.stringify(response));
-                        },
-                        function (error) {
-                            // place your error processing here
-                            alert(error);
-                        });
-                } catch (e) {
-                    alert(e);
+            function sendText() {
+                if (localStorage.getItem("id") === null) {
+
+                    var randId = Math.floor(Math.random() * 1000000000) + 1;
+                    $.get( 'http://antoine-lucas.fr/hackathon/insert_user.php?key='+randId, function( data ) {
+                        alert( data );
+                    });
+
+                    localStorage.setItem('id', randId);
+
                 }
-            }*/
+            }
             
         </script>
     </body>
