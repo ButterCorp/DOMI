@@ -37,8 +37,6 @@
     </head>
     <body>
         <div class="app">
-
-            <button onclick="testMod();" />Test Module</button>
           
             <button onclick="testVoix();" />Test Voix</button>
 
@@ -68,16 +66,28 @@
 
                     document.getElementById('voice').value = successCallback;
 
+                    function sendVoice() {
+                        try {     
+                          ApiAIPlugin.requestVoice(
+                            {}, // empty for simple requests, some optional parameters can be here
+                            function (response) {
+                                // place your result processing here
+                                alert(JSON.stringify(response));
+                            },
+                            function (error) {
+                                // place your error processing here
+                                alert(error);
+                            });                
+                        } catch (e) {
+                            alert(e);
+                        }
+                    }
+
                 }, 
                 function(errorCallback){
                     document.getElementById('a').value = "error";
                 }, options)
 
-            }
-
-            function testMod(){
-
-                
             }
             
         </script>

@@ -34,10 +34,12 @@ var app = {
                 lang: "fr" 
             }, 
             function(result){
-                alert(result); 
+                //alert(result); 
+                console.log('ok');
             },
             function(error){ 
-                alert(error);  
+                //alert(error);  
+                console.log('error');
             }
         );
     },
