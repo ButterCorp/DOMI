@@ -80,7 +80,9 @@
             function sendVoice() {
                 try {     
                   ApiAIPlugin.requestVoice(
-                    {}, 
+                    {
+                        query: "Bonjour"
+                    }, 
                     function (response) {    
                         // place your result processing here
                         alert(JSON.stringify(response));
