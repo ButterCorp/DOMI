@@ -17,37 +17,20 @@
  * under the License.
  */
 * {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-tap-highlight-color: rgb(255, 255, 255); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
-    background-attachment:fixed;
+html, body{
+    height: 100%;
+}
+
+body {             /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:rgb(255, 255, 255);
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
-    height:100%;
-    margin:0px;
-    padding:0px;
-    text-transform:uppercase;
-    width:100%;
 }
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
@@ -112,4 +95,84 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+
+.selector{
+    text-align: center;
+    border: 1.5px solid  rgb(241, 241, 241);
+    border-radius: 10px;
+    width: 170px;
+    height: 170px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.marg{
+    margin-left: 30px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+    .marg {
+      margin-left: unset;
+    }
+}
+
+.selector:hover{
+    background-color: rgb(241, 241, 241);
+}
+
+.txtSelector{
+    text-align: center;
+    color:#FF7900;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.btnOrange{
+    border-radius: 25px;
+    padding: 10px 30px;
+    border: 2px solid #FF7900;
+    color: #FF7900;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.btnOrange:hover{
+    border: 2px solid #FF7900;
+    color: #FFFFFF;
+    background-color: #FF7900;
+}
+
+#seCo{
+    text-transform: uppercase;
+    
+}
+
+#seCo a{
+    color: #FF7900;
+}
+
+.fixedBottom{
+    position:fixed;
+    bottom: 10px;
+    width:100%
+}
+
+label > input{
+    visibility: hidden; 
+    position: absolute; 
+}
+
+label > input + div{ 
+    cursor:pointer;
+    border:2px solid transparent;
+}
+
+label > input:checked + div{ 
+    background-color: rgb(241, 241, 241);
 }
