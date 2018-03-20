@@ -86,6 +86,10 @@
                         console.log(level);
                     }); 
 
+                    ApiAIPlugin.setListeningStartCallback(function () {
+                       alert('écoute');
+                    });
+
                     ApiAIPlugin.requestVoice(
                     {
                         query: "Bonjour"
@@ -129,25 +133,29 @@
 
                         document.getElementById('voice').value = successCallback;
 
+                        alert(successCallback);
+
                         ApiAIPlugin.requestVoice({
                             query: successCallback
                         }, 
                         function (response) {    
-                            // place your result processing here
+
+                            alert(response);
+                            
                             alert(JSON.stringify(response));
                         },
                         function (error) {
-                            // place your error processing here
+                            
                             alert(error);
                         });
 
                     },
                     function(errorCallback){
-                        document.getElementById('a').value = "error";
+                        alert('Error : ' + errorCallback);
                     }, options);
                                     
                 } catch (e) {
-                    alert(e);
+                    alert("Erreur de merde :" + e);
                 }
             }
 
