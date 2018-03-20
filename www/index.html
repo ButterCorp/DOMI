@@ -37,6 +37,8 @@
     </head>
     <body>
         <div class="app">
+
+            <button onclick="sendVoice();" />Test Send Voice</button>
           
             <button onclick="testVoix();" />Test Voix</button>
 
@@ -66,30 +68,28 @@
 
                     document.getElementById('voice').value = successCallback;
 
-                    try {     
-                      ApiAIPlugin.requestVoice(
-                        {
-                            query:successCallback
-                        }, 
-                        function (response) {
-
-
-                            // place your result processing here
-                            alert(JSON.stringify(response));
-                        },
-                        function (error) {
-                            // place your error processing here
-                            alert(error);
-                        });                
-                    } catch (e) {
-                        alert(e);
-                    }
-
                 }, 
                 function(errorCallback){
                     document.getElementById('a').value = "error";
                 }, options)
 
+            }
+
+            function sendVoice() {
+                try {     
+                  ApiAIPlugin.requestVoice(
+                    {}, 
+                    function (response) {    
+                        // place your result processing here
+                        alert(JSON.stringify(response));
+                    },
+                    function (error) {
+                        // place your error processing here
+                        alert(error);
+                    });                
+                } catch (e) {
+                    alert(e);
+                }
             }
             
         </script>
