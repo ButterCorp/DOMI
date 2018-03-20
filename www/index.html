@@ -45,6 +45,8 @@
             <button onclick="testVoix();" />Test Voix</button>
 
             <input id="voice" value="" disabled/>
+
+            <textarea id="ta"></textarea>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -96,13 +98,9 @@
 
                         alert(response);
 
-                        alert(response['result']['fulfillment']['speech']);
-
-                        alert(response[0]);
-
-                        alert(response[0]['result']['fulfillment']['speech']);
-
                        // document.getElementById('voice').value = response.result.fulfillment.speech;
+
+                       document.getElementById('ta').value = response;
 
                     },
                     function (error) {
