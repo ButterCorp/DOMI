@@ -91,12 +91,14 @@
                     });
 
                     ApiAIPlugin.requestVoice(
-                    {}, 
+                    {
+                        contexts: ["Jambon", "Pain", "Tomate"]
+                    }, 
                     function (response) {    
 
                         response = JSON.stringify(response);
 
-                        console.log(response);
+                        alert(response);
 
                         document.getElementById('ta').value = response.result.fulfillment.speech;
 
