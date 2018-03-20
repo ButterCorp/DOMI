@@ -40,6 +40,8 @@
 
             <button onclick="sendVoice();" />Test Send Voice</button>
 
+            <button onclick="sendVoice2();" />Test Send Voice2</button>
+
             <button onclick="sendText();" />Test sendText</button>
           
             <button onclick="testVoix();" />Test Voix</button>
@@ -79,7 +81,12 @@
 
             function sendVoice() {
                 try {     
-                  ApiAIPlugin.requestVoice(
+
+                    ApiAIPlugin.levelMeterCallback(function(level) {
+                        console.log(level);
+                    }); 
+
+                    ApiAIPlugin.requestVoice(
                     {
                         query: "Bonjour"
                     }, 
@@ -91,6 +98,34 @@
                         // place your error processing here
                         alert(error);
                     });                
+                } catch (e) {
+                    alert(e);
+                }
+            }
+
+            function sendVoice2() {
+                try {     
+
+                    ApiAIPlugin.levelMeterCallback(function(level) {
+                        console.log(level);
+                    }); 
+
+                    window.plugins.speechRecognition.startListening(function(successCallback){
+
+                        ApiAIPlugin.requestVoice({
+                            query: successCallback
+                        }, 
+                        function (response) {    
+                            // place your result processing here
+                            alert(JSON.stringify(response));
+                        },
+                        function (error) {
+                            // place your error processing here
+                            alert(error);
+                        });
+
+                    });
+                                    
                 } catch (e) {
                     alert(e);
                 }
