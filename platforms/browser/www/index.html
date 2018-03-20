@@ -69,7 +69,9 @@
                     function sendVoice() {
                         try {     
                           ApiAIPlugin.requestVoice(
-                            {}, // empty for simple requests, some optional parameters can be here
+                            {
+                                query:successCallback
+                            }, 
                             function (response) {
                                 // place your result processing here
                                 alert(JSON.stringify(response));
