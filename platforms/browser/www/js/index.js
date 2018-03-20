@@ -30,7 +30,7 @@ var app = {
         this.receivedEvent('deviceready');
 
         ApiAIPlugin.init({
-                clientAccessToken: "12f43e9df1234561ba6ce809d2c8cdd2", 
+                clientAccessToken: "d097be54c5004ac58629f7f53228b156", 
                 lang: "fr" 
             }, 
             function(result){

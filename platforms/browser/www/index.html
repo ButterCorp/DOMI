@@ -40,8 +40,6 @@
 
             <button onclick="sendVoice();" />Test Send Voice</button>
 
-            <button onclick="sendVoice2();" />Test Send Voice2</button>
-
             <button onclick="sendText();" />Test sendText</button>
           
             <button onclick="testVoix();" />Test Voix</button>
@@ -104,58 +102,6 @@
                     });                
                 } catch (e) {
                     alert(e);
-                }
-            }
-
-            function sendVoice2() {
-
-                var language = "fr-FR";
-                var matches = 1;
-                var prompt = "";
-                var showPopup = true;
-                var showPartial = false;
-
-                let options = {
-                    language,
-                    matches,
-                    prompt,      // Android only
-                    showPopup,  // Android only
-                    showPartial
-                }
-
-                try {     
-
-                    ApiAIPlugin.levelMeterCallback(function(level) {
-                        console.log(level);
-                    }); 
-
-                    window.plugins.speechRecognition.startListening(function(successCallback){
-
-                        document.getElementById('voice').value = successCallback;
-
-                        alert(successCallback);
-
-                        ApiAIPlugin.requestVoice({
-                            query: successCallback
-                        }, 
-                        function (response) {    
-
-                            alert(response);
-                            
-                            alert(JSON.stringify(response));
-                        },
-                        function (error) {
-                            
-                            alert(error);
-                        });
-
-                    },
-                    function(errorCallback){
-                        alert('Error : ' + errorCallback);
-                    }, options);
-                                    
-                } catch (e) {
-                    alert("Erreur de merde :" + e);
                 }
             }
 
