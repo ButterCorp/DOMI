@@ -94,13 +94,15 @@
 
                         response = JSON.stringify(response);
 
-                        alert(JSON.parse(response));
-
                         alert(response);
 
                         alert(response.result);
                         
-                        
+                        alert(response['result']['fulfillment']['speech']);
+
+                        alert(response[0]);
+
+                        alert(response[0]['result']['fulfillment']['speech']);
 
                         document.getElementById('voice').value = response.result.fulfillment.speech;
 
