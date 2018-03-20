@@ -91,18 +91,16 @@
                     });
 
                     ApiAIPlugin.requestVoice(
-                    {}, 
+                    {
+                        contexts: ["Jambon", "Pain"]
+                    }, 
                     function (response) {    
-
-                        alert(response);
 
                         response = JSON.stringify(response);
 
-                        alert(response);
+                        console.log(response);
 
-                       // document.getElementById('voice').value = response.result.fulfillment.speech;
-
-                       document.getElementById('ta').value = response;
+                        document.getElementById('ta').value = response.result.fulfillment.speech;
 
                     },
                     function (error) {
