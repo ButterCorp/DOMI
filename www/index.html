@@ -100,7 +100,9 @@
 
                         alert(response);
 
-                        document.getElementById('ta').value = response;
+                        var ez = response.result;
+
+                        document.getElementById('ta').value = ez;
 
                     },
                     function (error) {
