@@ -28,13 +28,17 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        ApiAIPlugin.init(
-            {
-                clientAccessToken: "12f43e9df1234561ba6ce809d2c8cdd2", // insert your client access key here
-                lang: "fr" // set lang tag from list of supported languages
+
+        ApiAIPlugin.init({
+                clientAccessToken: "12f43e9df1234561ba6ce809d2c8cdd2", 
+                lang: "fr" 
             }, 
-            function(result) { alert('ApiAIPlugin ok'); },
-            function(error) { alert('ApiAIPlugin error');  }
+            function(result){
+                alert(result); 
+            },
+            function(error){ 
+                alert(error);  
+            }
         );
     },
 
