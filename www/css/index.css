@@ -200,3 +200,53 @@ label > input:checked + div{
     border-radius: 5px;
     display:none;
 }
+
+#topName{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#micro{
+    position: absolute;
+    width: 65px;
+    right: 15px;
+    top: 15px;
+    border: 1px solid #FF7900;
+    padding: 10px;
+    border-radius: 40px;
+}
+
+#datetime2{
+    font-size: 50px;
+    letter-spacing: -3px;
+}
+
+#datetime{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.alert{
+    background-color: gray;
+    color: white;
+    font-size: 17px;
+}
+
+.item{
+    width: 130px;
+    height: 130px;
+    padding: 15px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.item a{
+    color:black;
+    font-weight: 600;
+}
