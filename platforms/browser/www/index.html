@@ -44,7 +44,7 @@
           
             <button onclick="testVoix();" />Test Voix</button>
 
-            <input id="voice" value=""/>
+            <input id="voice" value="" disabled/>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -92,7 +92,10 @@
                     {}, 
                     function (response) {    
                         
-                        alert(JSON.stringify(response));
+                        response = JSON.stringify(response);
+
+                        document.getElementById('voice').value = response.result.fulfillment.speech;
+
                     },
                     function (error) {
                         
