@@ -12,13 +12,15 @@
     "dependencies": {
         "cordova-plugin-apiai": "^1.7.4",
         "cordova-plugin-speechrecognition": "^1.2.0",
-        "cordova-plugin-whitelist": "1"
+        "cordova-plugin-whitelist": "1",
+        "cordova-plugin-call-number": "^1.0.1"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-speechrecognition": {},
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-apiai": {}
+            "cordova-plugin-apiai": {},
+            "cordova-plugin-call-number": {}
         }
     }
 }

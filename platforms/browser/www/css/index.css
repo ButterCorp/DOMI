@@ -250,3 +250,13 @@ label > input:checked + div{
     color:black;
     font-weight: 600;
 }
+
+.btnBlanc{
+    border-radius: 25px;
+    padding: 10px 30px;
+    border: 2px solid #FFFFFF;
+    background-color: #FFFFFF;
+    color: #FF7900;
+    font-size: 19px;
+    font-weight: 600;
+}
