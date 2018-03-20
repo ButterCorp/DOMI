@@ -48,20 +48,12 @@
         
             function testVoix(){
 
-                console.log('rentré');
-
-                var language = "fr-FR";
-                var matches = 1;
-                var prompt = "";
-                var showPopup = true;
-                var showPartial = false;
-
                 let options = {
-                    language,
-                    matches,
-                    prompt,      // Android only
-                    showPopup,  // Android only
-                    showPartial 
+                    language =  "fr-FR",
+                    matches = 1,
+                    prompt = "",      // Android only
+                    showPopup = true,  // Android only
+                    showPartial = false
                 }
 
                 window.plugins.speechRecognition.startListening(function(successCallback){

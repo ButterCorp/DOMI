@@ -28,16 +28,24 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        ApiAIPlugin.init(
+            {
+                clientAccessToken: "12f43e9df1234561ba6ce809d2c8cdd2", // insert your client access key here
+                lang: "fr" // set lang tag from list of supported languages
+            }, 
+            function(result) { alert('ApiAIPlugin ok'); },
+            function(error) { alert('ApiAIPlugin error');  }
+        );
     },
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
+        /*var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        receivedElement.setAttribute('style', 'display:block;');*/
 
         console.log('Received Event: ' + id);
     }
