@@ -7,9 +7,9 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
-    <preference name = "SplashScreen" value = "screen" />
-    <preference name = "SplashScreenDelay" value = "3000" />
-    <preference name = "SplashMaintainAspectRatio" value = "true" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
     <content src="index.html" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
