@@ -54,7 +54,7 @@
                 <div class="row" style="margin-top:50px;">
 
                     <label>
-                        <input type="radio" name="fb" value="senior" />
+                        <input type="radio" name="fb" value="senior" checked/>
                         <div class="selector">
                             <img src="img/couple.png" style="width: 100px;margin-top: 20px;"/>
                             <br />
@@ -113,68 +113,6 @@
                 window.location = href;
             });
         
-            function testVoix(){
-
-                var language = "fr-FR";
-                var matches = 1;
-                var prompt = "";
-                var showPopup = true;
-                var showPartial = false;
-
-                let options = {
-                    language,
-                    matches,
-                    prompt,      // Android only
-                    showPopup,  // Android only
-                    showPartial
-                }
-
-                window.plugins.speechRecognition.startListening(function(successCallback){
-
-                    document.getElementById('voice').value = successCallback;
-
-                }, 
-                function(errorCallback){
-                    document.getElementById('a').value = "error";
-                }, options)
-
-            }
-
-            function sendVoice() {
-                try {     
-
-                    ApiAIPlugin.levelMeterCallback(function(level) {
-                        console.log(level);
-                    }); 
-
-                    ApiAIPlugin.setListeningStartCallback(function () {
-                       // Ici ça get la voix
-                    });
-
-                    ApiAIPlugin.requestVoice(
-                    {
-                        contexts: ["Jambon", "Pain", "Tomate"]
-                    }, 
-                    function (response) {  
-                
-
-                        var testresponse = JSON.stringify(response);
-
-                        alert(testresponse);
-
-                        var ez = response.result.fulfillment.speech;
-
-                        document.getElementById('ta').value = ez;
-
-                    },
-                    function (error) {
-                        
-                        alert(error);
-                    });                
-                } catch (e) {
-                    alert(e);
-                }
-            }
 
             function sendText() {
                 if (localStorage.getItem("id") === null) {

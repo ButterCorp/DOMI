@@ -45,7 +45,7 @@
             <div class="row" style="margin-top:10px;height: 100px;">
                 <div class="item" style="width:90px;height:90px;margin-left:unset;">
                     <img src="img/teardrop-falling-on-sad-emoticon-face.png" class="itemImg" />
-                    <p class="itemTxt txt">Bonjour</p>
+                    <p class="itemTxt txt">Triste</p>
                 </div>
 
                 <div class="item" style="width:90px;height:90px;">
@@ -58,6 +58,12 @@
                 </div>
             </div>
         </div>
+
+
+        <div id="chat2">
+            <input type=text placeholder="    ENTREZ VOTRE MESSAGE" id="chattxt"/>
+            <img src="img/send-button.png" style="position: fixed;bottom: 5px;width: 35px;right: 0px;" id="imgtxtchat"/>
+        </div>
     
       </div>
             
@@ -66,6 +72,51 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script>
+
+
+
+
+            $('#imgtxtchat').on('click', function(){
+
+                var texte = $('#chattxt').val();
+
+                if(! texte){
+                    return false;
+                }
+
+                $('#chattxt').val('');
+
+
+                var d = new Date();
+                var n = d.getMinutes();
+                var h = d.getHours();
+
+                var day = d.getDate();
+                var month = d.getMonth();
+
+                $('.chat-message.padding').append("<div class='chat-message chat-message-sender'>" +
+                    
+                        "<div class='chat-message-wrapper'>" +
+                        "<div class='chat-message-content'>" +
+                            "<p>"+ texte +"</p>" +
+                        "</div>" +
+
+                    " <div class='chat-details'>" +
+                            "<span class='chat-message-localisation font-size-small'>"+h+":"+n+"</span>" +
+                        " <span class='chat-message-read-status font-size-small'>"+day+"/"+month+"</span>" +
+                        "</div>" +
+                        "</div>" + 
+                    "</div>");
+
+                    var wtf = $('#chatsc');
+                    var height = wtf[0].scrollHeight;
+                    console.log(height);
+                    wtf.scrollTop(height);
+
+                    setTimeout(sendText(texte), 3000);
+
+
+            });
 
 
             $( document ).ready(function() {
@@ -267,6 +318,14 @@
                         alert(e);
                     }
                 }
+
+                if(localStorage.getItem('smartphone') == 0){
+                    $('#chat1').hide();
+
+                    $('.chat-wrapper').css('height', '570px');
+                    $('.chat-wrapper').css('max-height', '570px');
+                }
+
 
 
 

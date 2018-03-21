@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
     <body>
-        <div class="container" style="text-align:center"> 
+        <div class="container" style="text-align:center" id="famille"> 
             <div class="row" style="margin-top:80px">
                 <div class="col-md-4">
                     <span style="font-weight:700;font-size:28px">INSCRIVEZ-VOUS</span>
@@ -50,14 +50,140 @@
                 <a id="main_nav" href="panel.html" class="btnOrange" style="margin-bottom:20px;">S'INSCRIRE</a>
             </div>
         </div>
+
+
+
+        <div class="container" style="text-align:center" id="senior"> 
+                <div class="row" style="margin-top:20px">
+                    <div class="col-md-4">
+                        <span style="font-weight:700;font-size:28px">INSCRIVEZ-VOUS</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="padding-left: 15%;padding-right: 15%;">
+                        <span style="font-size:17px">Les informations fournies sont strictement confidentielles.</span>
+                    </div>        
+                </div>
+
+                <div class="container">
+                    <form class="multi-form col-md-8 col-md-offset-2">
+                        <div class="row">
+                            <ul class="progressbar">
+                                 <li class="active">Autonomie</li>
+                                 <li>Smartphone</li>
+                                 <li>Informations</li>
+                            </ul>
+                        </div>
+                        <fieldset>
+                            <h1 class="fs-title">Quel est votre degré d'autonomie ?</h1>
+
+                            <div class="row" style="width: 80%;margin: 0 auto;margin-top: 50px;">
+                                <label class="containercb">Autonome
+                                    <input type="radio" name="autonomie" checked value="1">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                
+                            <div class="row" style="width: 80%;margin: 0 auto;">
+                                <label class="containercb">Quasi-autonome
+                                    <input type="radio" name="autonomie" value="1">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="row" style="width: 80%;margin: 0 auto;">
+                                <label class="containercb">Dépendance faible
+                                    <input type="radio" name="autonomie" value="2">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                
+                            <div class="row" style="width: 80%;margin: 0 auto;"> 
+                                <label class="containercb">Dépendance forte
+                                    <input type="radio" name="autonomie" value="2">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+
+                            <button class="next action-button btnOrange" style="margin-top:20px;">SUIVANT</button>
+                        </fieldset>
+
+                        <fieldset>
+                            <h1 class="fs-title">Êtes-vous à l'aise sur smartphone ?</h1>
+
+                                <div class="row" style="width: 80%;margin: 0 auto;margin-top: 50px;">
+                                    <label class="containercb">Oui, je suis très à l'aise
+                                        <input type="radio" name="smartphone" checked value="1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                    
+                                <div class="row" style="width: 80%;margin: 0 auto;">
+                                    <label class="containercb">Non, pas du tout
+                                        <input type="radio" name="smartphone" value="2">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                    
+                                <button class="next action-button btnOrange" style="margin-top:20px;">SUIVANT</button>
+                                <button class="previous action-button btnOrange" style="margin-top:20px;">PRÉCEDENT</button>
+
+                        </fieldset>
+
+
+                        <fieldset>
+                            <h1 class="fs-title">Informations</h1>
+                            <div class="row" id="veriff">
+                                <span>Vous n'avez pas rempli correctement tout les champs.</span>
+                                </div>
+                    
+                                <div class="row">
+                                    <input type="text" id="nomf" class="inputInscription" placeholder="NOM"/>
+                                </div>
+                    
+                                <div class="row">
+                                    <input type="text" id="prenomf" class="inputInscription" placeholder="PRÉNOM"/>
+                                </div>
+                    
+                                <div class="row">
+                                    <input type="email" id="emailf" class="inputInscription" placeholder="EXEMPLE@EMAIL.COM"/>
+                                </div>
+                    
+                                <div class="row">
+                                    <input type="password" id="mdpf" class="inputInscription" placeholder="MOT DE PASSE"/>
+                                </div>
+                    
+                                <div class="row">
+                                    <input type="password" id="mdp2f" class="inputInscription" placeholder="CONFIRMER LE MOT DE PASSE"/>
+                                </div>
+
+                                <button class="previous action-button btnOrange" style="margin-top:20px;">PRÉCEDENT</button>
+                    
+                                <div class="row" style="margin-top:20px;">
+                                    <a id="main_nav2" href="panel.html" class="btnOrange" style="margin-bottom:20px;">S'INSCRIRE</a>
+                                </div>
+                            
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
             
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script>
+
+            if(localStorage.getItem('typeInscription') == "senior"){
+                $('#famille').hide();
+            }
+            else{
+                $('#senior').hide();
+            }
+            
         
             $('#main_nav').on('click', function(){
+
+                console.log('wenger in');
 
                 var href = this.href;
 
@@ -93,6 +219,71 @@
 
                     window.location = href;
                 });
+            });
+
+            $('#main_nav2').on('click', function(){
+
+                var href = this.href;
+
+                event.preventDefault();
+
+                localStorage.setItem('autonomie', $('input[name="autonomie"]:checked').val());
+
+                localStorage.setItem('smartphone', $('input[name="smartphone"]:checked').val());
+
+                if(!$('#nomf').val() || !$('#prenomf').val() || !$('#emailf').val() || !$('#mdpf').val() || !$('#mdp2f').val()){
+                    $('#veriff').css('display', 'block');
+                }
+
+                if($('#mdpf').val() !== $('#mdp2f').val()){
+                    $('#veriff').css('display', 'block');
+                }
+
+                var randId = Math.floor(Math.random() * 1000000000) + 1;
+                var nom = $('#nomf').val();
+                var prenom = $('#prenomf').val();
+                var email = $('#emailf').val();
+                var passwd = $('#mdpf').val();       
+
+
+                $.ajax({
+                    method: "POST",
+                    url: "http://antoine-lucas.fr/hackathon/insert_user.php",
+                    data: JSON.stringify({ id: randId, name: nom, prenom: prenom, email: email, password: passwd })
+                })
+                .done(function( msg ) {
+
+                    localStorage.setItem('connect', 1);
+
+                    localStorage.setItem('id', randId);
+
+                    localStorage.setItem('completeName', prenom);
+
+                    window.location = href;
+                });
+            });
+
+
+            $(function(){
+                var current_fs, previous_fs, next_fs;
+                
+                $('button.next').click(function(e){
+                    e.preventDefault();
+                    current_fs = $(this).parent();
+                    next_fs = current_fs.next();
+                    $('.progressbar li').eq($('fieldset').index(next_fs)).addClass('active');
+                    next_fs.show();
+                });
+
+                $('button.previous').click(function(e){
+                    e.preventDefault();
+                    current_fs = $(this).parent();
+                    previous_fs = current_fs.prev();
+                    $('.progressbar li').eq($('fieldset').index(current_fs)).removeClass('active');
+                    current_fs.hide();
+                    previous_fs.show();
+                });
+
             });
 
         </script>
