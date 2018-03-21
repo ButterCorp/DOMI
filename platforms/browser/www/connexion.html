@@ -62,6 +62,7 @@
                 .done(function( msg ) {
 
                     if(msg == 'Valid user'){
+                        localStorage.setItem('connect', 1);
                         window.location = href;
                     }
                     else{

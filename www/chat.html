@@ -86,6 +86,20 @@
 
             $( document ).ready(function() {
 
+                ApiAIPlugin.init({
+                    clientAccessToken: "d097be54c5004ac58629f7f53228b156", 
+                    lang: "fr" 
+                    }, 
+                    function(result){
+                        //alert(result); 
+                        console.log('ok');
+                    },
+                    function(error){ 
+                        //alert(error);  
+                        console.log('error');
+                    }
+                );
+
                 var texte = "Bonjour";
 
                 sendText(texte)
