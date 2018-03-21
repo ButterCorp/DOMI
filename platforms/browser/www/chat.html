@@ -119,8 +119,12 @@
                                 query: query_text
                             },
                             function (response) {
+
+                                alert('rentré');
                                 
                                 var reponse = response.result.fulfillment.speech;
+
+                                alert(reponse);
 
                                  $('.chat-message.padding').append("<div class='chat-message chat-message-recipient'>" +
     
