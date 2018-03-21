@@ -1,6 +1,6 @@
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src *;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -81,19 +81,20 @@
                 
                 alert('avant ajax');
 
+                $.ajax({
+                    method: "POST",
+                    url: "http://antoine-lucas.fr/hackathon/insert_user.php",
+                    data: { id: randId, name: nom, prenom: prenom, email: email, password: passwd }
+                })
+                .done(function( msg ) {
+                    alert( "Data Saved: " + msg );
 
-                $.post('http://antoine-lucas.fr/hackathon/insert_user.php', { id: randId, name: nom, prenom: prenom, email: email, password: passwd})
-                    .done(function(data){
+                    localStorage.setItem('id', randId);
 
-                        alert('in ajax');
+                    localStorage.setItem('completeName', prenom);
 
-                        localStorage.setItem('id', randId);
-
-                        localStorage.setItem('completeName', prenom);
-
-                        window.location = href;
-
-                    });
+                    window.location = href;
+                });
             });
 
         </script>
