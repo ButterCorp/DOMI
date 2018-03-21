@@ -61,7 +61,11 @@
                 })
                 .done(function( msg ) {
 
-                    if(msg == 'Valid user'){
+                    console.log(msg);
+
+                    localStorage.setItem('id', msg["Key"]);
+
+                    if(msg['Response'] == 'Valid user'){
                         localStorage.setItem('connect', 1);
                         window.location = href;
                     }

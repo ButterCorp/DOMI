@@ -16,6 +16,7 @@
 
 
         <div class='chat-message padding'>
+                <img src="img/microphone.png" id="micro" style="z-index: 10000;background: white;"/>
     
         </div>
 
@@ -163,6 +164,49 @@
                                 
                                 alert(error);
                             });
+                    } catch (e) {
+                        alert(e);
+                    }
+                }
+
+
+                $('#micro').on('click', function(){
+
+                    var id = localStorage.getItem('id');
+                    
+                    sendVoice(id);
+                });
+
+                function sendVoice(id) {
+                    try {     
+
+                        ApiAIPlugin.levelMeterCallback(function(level) {
+                            console.log(level);
+                        }); 
+
+                        ApiAIPlugin.setListeningStartCallback(function () {
+                        // Ici ça get la voix
+                        });
+
+                        ApiAIPlugin.requestVoice(
+                        {
+                            contexts: [id]
+                        }, 
+                        function (response) {  
+
+                            var testresponse = JSON.stringify(response);
+
+                            alert(testresponse);
+
+                            var ez = response.result.fulfillment.speech;
+
+                            alert(ez);
+
+                        },
+                        function (error) {
+                            
+                            alert(error);
+                        });                
                     } catch (e) {
                         alert(e);
                     }
