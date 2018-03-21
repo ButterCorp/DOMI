@@ -27,23 +27,23 @@
             </div>
 
             <div class="row">
-                <input type="text" id="nom" class="inputInscription" placeholder="Nom"/>
+                <input type="text" id="nom" class="inputInscription" placeholder="NOM"/>
             </div>
 
             <div class="row">
-                <input type="text" id="prenom" class="inputInscription" placeholder="Prénom"/>
+                <input type="text" id="prenom" class="inputInscription" placeholder="PRÉNOM"/>
             </div>
 
             <div class="row">
-                <input type="email" id="email" class="inputInscription" placeholder="Exemple@email.com"/>
+                <input type="email" id="email" class="inputInscription" placeholder="EXEMPLE@EMAIL.COM"/>
             </div>
 
             <div class="row">
-                <input type="password" id="mdp" class="inputInscription" placeholder="Mot de passe"/>
+                <input type="password" id="mdp" class="inputInscription" placeholder="MOT DE PASSE"/>
             </div>
 
             <div class="row">
-                <input type="password" id="mdp2" class="inputInscription" placeholder="Confirmer le mot de passe"/>
+                <input type="password" id="mdp2" class="inputInscription" placeholder="CONFIRMER LE MOT DE PASSE"/>
             </div>
 
             <div class="row" style="margin-top:50px;">
@@ -84,6 +84,8 @@
                     data: JSON.stringify({ id: randId, name: nom, prenom: prenom, email: email, password: passwd })
                 })
                 .done(function( msg ) {
+
+                    localStorage.setItem('connect', 1);
 
                     localStorage.setItem('id', randId);
 

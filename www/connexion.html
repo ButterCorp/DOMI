@@ -13,25 +13,12 @@
         <div class="container" style="text-align:center"> 
             <div class="row" style="margin-top:80px">
                 <div class="col-md-4">
-                    <span style="font-weight:700;font-size:28px">INSCRIVEZ-VOUS</span>
+                    <span style="font-weight:700;font-size:28px">CONNECTEZ-VOUS</span>
                 </div>
-            </div>
-            <div class="row">
-                <div style="padding-left: 15%;padding-right: 15%;">
-                    <span style="font-size:17px">Les informations fournies sont strictement confidentielles.</span>
-                </div>        
             </div>
 
             <div class="row" id="verif">
-               <span>Vous n'avez pas rempli correctement tout les champs.</span>
-            </div>
-
-            <div class="row">
-                <input type="text" id="nom" class="inputInscription" placeholder="NOM"/>
-            </div>
-
-            <div class="row">
-                <input type="text" id="prenom" class="inputInscription" placeholder="PRÉNOM"/>
+               <span>Un ou plusieurs champs n'ont pas étés remplis ou ne sont pas corrects.</span>
             </div>
 
             <div class="row">
@@ -42,12 +29,9 @@
                 <input type="password" id="mdp" class="inputInscription" placeholder="MOT DE PASSE"/>
             </div>
 
-            <div class="row">
-                <input type="password" id="mdp2" class="inputInscription" placeholder="CONFIRMER LE MOT DE PASSE"/>
-            </div>
 
             <div class="row" style="margin-top:50px;">
-                <a id="main_nav" href="panel.html" class="btnOrange" style="margin-bottom:20px;">S'INSCRIRE</a>
+                <a id="main_nav" href="panel.html" class="btnOrange" style="margin-bottom:20px;">SE CONNECTER</a>
             </div>
         </div>
             
@@ -63,35 +47,26 @@
 
                 event.preventDefault();
 
-                if(!$('#nom').val() || !$('#prenom').val() || !$('#email').val() || !$('#mdp').val() || !$('#mdp2').val()){
+                if(!$('#email').val() || !$('#mdp').val()){
                     $('#verif').css('display', 'block');
                 }
 
-                if($('#mdp').val() !== $('#mdp2').val()){
-                    $('#verif').css('display', 'block');
-                }
-
-                var randId = Math.floor(Math.random() * 1000000000) + 1;
-                var nom = $('#nom').val();
-                var prenom = $('#prenom').val();
                 var email = $('#email').val();
-                var passwd = $('#mdp').val();       
-                
+                var passwd = $('#mdp').val();
 
                 $.ajax({
                     method: "POST",
-                    url: "http://antoine-lucas.fr/hackathon/insert_user.php",
-                    data: JSON.stringify({ id: randId, name: nom, prenom: prenom, email: email, password: passwd })
+                    url: "http://antoine-lucas.fr/hackathon/connect_user.php",
+                    data: JSON.stringify({ email: email, password: passwd })
                 })
                 .done(function( msg ) {
 
-                    localStorage.setItem('connect', 1);
-
-                    localStorage.setItem('id', randId);
-
-                    localStorage.setItem('completeName', prenom);
-
-                    window.location = href;
+                    if(msg == 'Valid user'){
+                        window.location = href;
+                    }
+                    else{
+                        $('#verif').css('display', 'block');
+                    } 
                 });
             });
 

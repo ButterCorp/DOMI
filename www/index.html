@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="row fixedBottom">
-                    <span id="seCo">Vous-êtes déjà membre ? <span style="color: #FF7900;"><a href="urgences.html">CONNECTEZ-VOUS.</a></span>
+                    <span id="seCo">Vous-êtes déjà membre ? <span style="color: #FF7900;"><a href="connexion.html">CONNECTEZ-VOUS.</a></span>
                 </div>
             </div>
 
@@ -98,6 +98,14 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script>
+
+            $( document ).ready(function() {
+
+                if(localStorage.getItem('connect') == 1){
+                    window.location = "panel.html";
+                }
+
+            });
 
             $('#main_nav').click(function(event) {
 

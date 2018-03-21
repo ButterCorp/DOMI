@@ -83,6 +83,14 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script>
 
+
+            $( document ).ready(function() {
+
+                var texte = "Bonjour";
+
+                sendText(texte)
+            });
+
             $('.item').on('click', function(){
                 var texte = $(this).text();
 
@@ -121,9 +129,6 @@
                             function (response) {
                                 
                                 var reponse = response.result.fulfillment.speech;
-
-                                alert(reponse);
-
 
                                 var d = new Date();
                                 var n = d.getMinutes();
