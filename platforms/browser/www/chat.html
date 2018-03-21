@@ -319,11 +319,14 @@
                     }
                 }
 
-                if(localStorage.getItem('smartphone') == 0){
+                if(localStorage.getItem('smartphone') == 1){
                     $('#chat1').hide();
 
                     $('.chat-wrapper').css('height', '570px');
                     $('.chat-wrapper').css('max-height', '570px');
+                }
+                else{
+                    $('#chat2').hide();
                 }
 
 
