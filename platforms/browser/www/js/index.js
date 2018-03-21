@@ -42,11 +42,6 @@ var app = {
                 console.log('error');
             }
         );
-
-        if(localStorage.getItem('connect') == 1){
-            
-            window.location = "panel.html";
-        }
     },
 
     // Update DOM on a Received Event
