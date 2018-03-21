@@ -194,9 +194,8 @@
                             console.log(level);
                         }); 
 
-                        ApiAIPlugin.setListeningStartCallback(function (a) {
+                        ApiAIPlugin.setListeningStartCallback(function () {
                         // Ici ça get la voix
-                            alert(a);
                         });
 
                         ApiAIPlugin.requestVoice(
@@ -213,6 +212,26 @@
 
                             var day = d.getDate();
                             var month = d.getMonth();
+
+                            var texte = response.metadata.resolvedQuery;
+
+                            $('.chat-message.padding').append("<div class='chat-message chat-message-sender'>" +
+                    
+                                    "<div class='chat-message-wrapper'>" +
+                                    "<div class='chat-message-content'>" +
+                                        "<p>"+ texte +"</p>" +
+                                    "</div>" +
+
+                                " <div class='chat-details'>" +
+                                        "<span class='chat-message-localisation font-size-small'>"+h+":"+n+"</span>" +
+                                    " <span class='chat-message-read-status font-size-small'>"+day+"/"+month+"</span>" +
+                                    "</div>" +
+                                    "</div>" + 
+                                "</div>");
+
+                            var wtf = $('#chatsc');
+                            var height = wtf[0].scrollHeight;
+                            wtf.scrollTop(height);
 
 
 
