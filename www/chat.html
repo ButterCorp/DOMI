@@ -17,23 +17,6 @@
 
         <div class='chat-message padding'>
     
-          <!-- <div class='chat-message chat-message-recipient'>
-    
-            <div class='chat-message-wrapper'>
-              <div class='chat-message-content'>
-                <p>Sushi tonight?</p>
-              </div>
-    
-              <div class='chat-details'>
-                <span class='chat-message-localization font-size-small'>Time</span>
-                <span class='chat-message-read-status font-size-small'>- Date</span>
-              </div>
-    
-            </div>
-          </div> -->
-    
-
-    
         </div>
 
         <div id="chat1">
@@ -86,23 +69,31 @@
 
             $( document ).ready(function() {
 
-                ApiAIPlugin.init({
-                    clientAccessToken: "d097be54c5004ac58629f7f53228b156", 
-                    lang: "fr" 
-                    }, 
-                    function(result){
-                        //alert(result); 
-                        console.log('ok');
-                    },
-                    function(error){ 
-                        //alert(error);  
-                        console.log('error');
-                    }
-                );
+                var reponse = "Bonjour, comment allez-vous ?";
 
-                var texte = "Bonjour";
+                var d = new Date();
+                var n = d.getMinutes();
+                var h = d.getHours();
 
-                sendText(texte)
+                var day = d.getDate();
+                var month = d.getMonth();
+
+
+
+                    $('.chat-message.padding').append("<div class='chat-message chat-message-recipient'>" +
+
+                        "<div class='chat-message-wrapper'>" +
+                        "<div class='chat-message-content'>" +
+                            "<p>"+reponse+"</p>" +
+                        "</div>" +
+
+                        "<div class='chat-details'>" +
+                            "<span class='chat-message-localization font-size-small'>"+h+":"+n+"</span>" +
+                            "<span class='chat-message-read-status font-size-small'>"+day+"/"+month+"</span>" +
+                        "</div>" +
+
+                        "</div>" +
+                    "</div>");
             });
 
             $('.item').on('click', function(){
