@@ -9,7 +9,9 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <allow-navigation href="*" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <allow-navigation href="data:*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -24,7 +26,7 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="cordova-plugin-speechrecognition" spec="^1.2.0" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-apiai" spec="^1.7.4" />
     <plugin name="cordova-plugin-call-number" spec="^1.0.1" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
 </widget>
