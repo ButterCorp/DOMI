@@ -59,8 +59,6 @@
         
             $('#main_nav').on('click', function(){
 
-                alert('rentré');
-
                 var href = this.href;
 
                 event.preventDefault();
@@ -79,7 +77,6 @@
                 var email = $('#email').val();
                 var passwd = $('#mdp').val();       
                 
-                alert('avant ajax');
 
                 $.ajax({
                     method: "POST",
@@ -87,7 +84,6 @@
                     data: JSON.stringify({ id: randId, name: nom, prenom: prenom, email: email, password: passwd })
                 })
                 .done(function( msg ) {
-                    alert( "Data Saved: " + msg );
 
                     localStorage.setItem('id', randId);
 

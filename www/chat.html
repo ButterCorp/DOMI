@@ -115,11 +115,27 @@
                     try {
                         ApiAIPlugin.requestText(
                             {
+                                contexts: [localStorage.getItem('id')],
                                 query: query_text
                             },
                             function (response) {
                                 
-                                alert(JSON.stringify(response));
+                                var reponse = response.result.fulfillment.speech;
+
+                                 $('.chat-message.padding').append("<div class='chat-message chat-message-recipient'>" +
+    
+                                        "<div class='chat-message-wrapper'>" +
+                                        "<div class='chat-message-content'>" +
+                                            "<p>"+reponse+"</p>" +
+                                        "</div>" +
+
+                                        "<div class='chat-details'>" +
+                                            "<span class='chat-message-localization font-size-small'>"+h+":"+n+"</span>" +
+                                            "<span class='chat-message-read-status font-size-small'>"+day+"/"+month+"</span>" +
+                                        "</div>" +
+
+                                        "</div>" +
+                                    "</div>");
                             },
                             function (error) {
                                 
