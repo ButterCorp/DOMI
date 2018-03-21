@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src *;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+    </head>
+    <body>
+
+        <div class="top">
+            <span id="topName" style="position:absolute;">DOMI</span>
+            <a href="panel.html" id="home" ><img src="img/home.png" style="width:30px;position: absolute;right: 10px;top:5px"/></a> 
+        </div>
+
+        <div class="row" style="margin-top:80px">
+            <div class="col-md-4" style="text-align: center;">
+                <span style="font-weight:700;font-size:28px">MÉMO</span>
+            </div>
+        </div>
+        
+         
+    <div class='chat-wrapper' id="chatsc" style="overflow-y: scroll;width: 90%;overflow: hidden;height: 500px;max-height: 500px;margin: 0 auto;background: rgb(241, 241, 241);;border-radius: 10px;">
+
+            <div class='chat-message padding'>
+                  
+        
+            </div>
+
+    </div>
+            
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script>
+
+            $(document).ready(function(){
+
+                var d = new Date();
+                var n = d.getMinutes();
+                var h = d.getHours();
+
+                var day = d.getDate();
+                var month = d.getMonth();
+
+                var idd = localStorage.getItem('id');
+
+                console.log(idd);
+
+                $.ajax({
+                    method: "POST",
+                    url: "http://antoine-lucas.fr/hackathon/get_memo.php",
+                    data: JSON.stringify({ id: idd })
+                })
+                .done(function( msg ) {
+
+                    console.log(msg);
+
+                    console.log(msg[0][1]);
+
+                     $('.chat-message.padding').append("<div class='chat-message chat-message-recipient'>" +
+
+                        "<div class='chat-message-wrapper'>" +
+                        "<div class='chat-message-content'>" +
+                            "<p>"+msg[0][1]+"<br />"+msg[0][2]+"</p>" +
+                        "</div>" +
+
+                        "<div class='chat-details'>" +
+                            "<span class='chat-message-localization font-size-small'>"+h+":"+n+"</span>" +
+                            "<span class='chat-message-read-status font-size-small'>"+day+"/"+month+"</span>" +
+                        "</div>" +
+
+                        "</div>" +
+                        "</div>");
+
+                });
+            });
+
+            $(document).ready(function(){
+                if(localStorage.getItem('autonomie') == 2){
+                    $('#home').hide();
+                }
+            });
+
+        </script>
+    </body>
+</html>
