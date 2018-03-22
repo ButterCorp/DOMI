@@ -51,6 +51,26 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script>
             $('#dtp').datetimepicker(); 
+
+
+            $('#main_nav').on('click', function(){
+
+                event.preventDefault();
+
+                var nom = $('#nom').val();
+                var content = $('#content').val();
+                var datepicker = $('#dtp').val();
+                var idSenior = localStorage.getItem('seniorId');
+
+                /*$.ajax({
+                    method: "POST",
+                    url: "http://antoine-lucas.fr/hackathon/get_message.php",
+                    data: JSON.stringify({ nom: nom, content: content, datepicker: datepicker, idSenior: idSenior })
+                })
+                .done(function( msg ) {
+                    console.log(msg);
+                });*/
+            });
         </script>
     </body>
 </html>
