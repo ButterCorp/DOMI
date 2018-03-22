@@ -440,10 +440,12 @@
                                     .done(function( msg ) {
                                         console.log(msg);
 
-                                        if(localStorage.getItem('Urg')){
+                                        if(localStorage.getItem('Urg') !== null){
 
                                             var number = localStorage.getItem('Urg');
                                             var bypassAppChooser = false;
+
+                                            alert(number);
 
                                             window.plugins.CallNumber.callNumber(onSuccess, onError, number, bypassAppChooser);
                                         }
@@ -473,11 +475,11 @@
                 }
 
                 function onSuccess(result){
-                    console.log("Success:"+result);
+                    alert("Success:"+result);
                 }
                     
                 function onError(result) {
-                    console.log("Error:"+result);
+                    alert("Error:"+result);
                 }
 
         </script>
