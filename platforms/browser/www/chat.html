@@ -438,16 +438,17 @@
                                             data: JSON.stringify({ user_key: id, status: "Alerte", content: texte })
                                     })
                                     .done(function( msg ) {
-                                        console.log(msg);
+                                        alert(msg);
 
-                                        if(localStorage.getItem('Urg') !== null){
+                                        var cdmkdir = localStorage.getItem('Urg');
 
-                                            var number = localStorage.getItem('Urg');
+                                        if(cdmkdir){
+
                                             var bypassAppChooser = false;
 
                                             alert(number);
 
-                                            window.plugins.CallNumber.callNumber(onSuccess, onError, number, bypassAppChooser);
+                                            window.plugins.CallNumber.callNumber(onSuccess, onError, cdmkdir, bypassAppChooser);
                                         }
 
                                         
