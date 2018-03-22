@@ -389,7 +389,14 @@
                                     "</div>" +
                                 "</div>");
 
-                                responsiveVoice.speak(reponse, "French Female");
+                                var url = window.location.href;
+                                var substring = "memo.html";
+
+                                if(url.indexOf(substring) === -1){
+                                    responsiveVoice.speak(reponse, "French Female");
+                                }
+
+                                
 
                                 var wtf = $('#chatsc');
                                 var height = wtf[0].scrollHeight;
