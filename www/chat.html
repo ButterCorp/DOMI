@@ -343,6 +343,8 @@
 
                             var reponse = response.result.fulfillment.speech;
 
+                            alert(reponse);
+
                             var d = new Date();
                             var n = d.getMinutes();
                             var h = d.getHours();
@@ -419,8 +421,7 @@
                                     $.ajax({
                                             method: "POST",
                                             url: "http://antoine-lucas.fr/hackathon/insert_memo.php",
-                                            data: JSON.stringify({ user_key: id, title: titl, content: cont }),
-                                            resetContext:true
+                                            data: JSON.stringify({ user_key: id, title: titl, content: cont })
                                     })
                                     .done(function( msg ) {
                                         console.log(msg);
