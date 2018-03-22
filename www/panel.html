@@ -142,6 +142,10 @@
                         <div class="row" style="margin-top:50px;">
                             <a id="main_nav" href="" class="btnOrange" style="margin-bottom:20px;">VALIDER</a>
                         </div>
+
+                        <div class="row" style="margin-top:50px;">
+                            <a id="retour_nav" href="" class="btnOrange" style="margin-bottom:20px;">RETOUR</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -179,9 +183,27 @@
 
                     event.preventDefault(); 
 
+                    console.log($('#imgS').val());
+
+                    if(! $('#nomS').val() || ! $('#idS').val() || ! $('#imgS').val()){
+                        $('#verif').show();
+                        return false;
+                    }
+
+                    // Appel ajax envoyer photo / jonction / surname + récup en .ready les infos
+
                     $('#blocform').hide(1000);
                     $('#blocfamille').show(1000);
                 
+                });
+
+                $('#retour_nav').on('click', function(){
+
+                    event.preventDefault(); 
+
+                    $('#blocform').hide(1000);
+                    $('#blocfamille').show(1000);
+
                 });
                 
 
