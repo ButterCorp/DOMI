@@ -702,3 +702,33 @@ input.switch {
       width:16px;
       height:16px;
   }
+
+
+.head{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.itemimg2{
+    position: relative;
+    width: 40px;
+    margin-bottom: 5px;
+    top: -5px;
+}
+
+.itemspan{
+    position: relative;
+    top: 0px;
+    font-size: 7.8px;
+    width: 80px;
+    left: -17px;
+}
+
+.ovrid{
+    width:80px;
+    height:80px;
+    margin-left:2px;
+    margin-right:2px;
+    border: 2px solid rgb(241, 241, 241);
+    background-color: white;
+}

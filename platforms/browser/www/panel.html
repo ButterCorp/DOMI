@@ -90,6 +90,11 @@
                             
                             
                         </div>
+
+
+                        <div class="row" style="margin-top:20px;">
+                            <span id="seCoId" ></span>
+                        </div>
         
                         <div class="row fixedBottom">
                             <span id="seCo">© 2018 Djingo - Tous droits réservés</span>
@@ -100,15 +105,15 @@
             </div>
 
             <div id="panelfamille">
-                <div style="margin: 0 auto;margin-top:120px;width:60%;text-align:center;font-size:16px">
-                    <p>Sélectionnez la personne que vous souhaitez suivre.</p>
+                <div style="margin: 0 auto;margin-top:120px;width:60%;text-align:center;font-size:16px;" id="pnlhd">
+                    <p>Sélectionnez la personne que vous souhaitez suivre.</p> 
                 </div>
                 <div id="blocfamille">
-                    <div class="newsenior">
+                    <div class="newsenior nv">
                         <img src="img/senior.jpg"/>
                         <span style="font-size:14px;">Papy Roger</span>
                         <br />
-                        <span>ID : 101010101</span>
+                        <span id="101010101">ID : 101010101</span>
                     </div>
                     
                     <div style="display: inline-block;" id="prepnd"> 
@@ -121,7 +126,7 @@
                     
                 </div>
 
-                <div class="container" style="text-align:center;display:none;" id="blocform"> 
+                <div class="container" style="text-align:center;display:none;" id="blocform" style="display:none;"> 
                     <div>
                         <div class="row" id="verif">
                             <span>Vous n'avez pas rempli correctement tout les champs.</span>
@@ -136,7 +141,7 @@
                         </div>
             
                         <div class="row">
-                            <input type="file" id="imgS" class="inputInscription" style="margin: 0 auto;margin-top: 30px;"/>
+                            <input type="file" id="imgS" class="inputInscription" style="margin: 0 auto;margin-top: 30px;" name="test"/>
                         </div>
 
                         <div class="row" style="margin-top:50px;">
@@ -146,6 +151,74 @@
                         <div class="row" style="margin-top:50px;">
                             <a id="retour_nav" href="" class="btnOrange" style="margin-bottom:20px;">RETOUR</a>
                         </div>
+                    </div>
+                </div>
+
+
+                <div id="panelfamillenxt" style="display:none;">
+                    <div class='head'>
+                        <div class="newsenior">
+                            <img src="img/senior.jpg"/>
+                            <span style="font-size:17px;">Papy Roger</span>
+                            <br />
+                            <span id="101010101">ID : 101010101</span>
+                        </div>
+                    </div>
+
+                    <div class="container" style="text-align:center;margin-top:30px">
+
+                            <div style="padding:10px">
+
+                                <div class="row">
+                                    <div class='item ovrid'>
+                                        <a href="urgences.html">
+                                            <img src="img/microphone.png" class="itemimg2"/><br />
+                                            <p class="itemspan">Message vocal</p>
+                                        </a>
+                                    </div>
+                                    <div class='item ovrid'>
+                                        <a href="urgences.html">
+                                            <img src="img/calendar.png" class="itemimg2"/><br />
+                                            <p class="itemspan">Rendez-vous</p>
+                                        </a>
+                                    </div>
+        
+                                    <div class='item ovrid'>
+                                        <a href="urgences.html">
+                                            <img src="img/medicine.png" class="itemimg2"/><br />
+                                            <p class="itemspan">Pharmacie</p>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <div class="row" style="margin-top:15px;">
+                                    <div class='item ovrid'>
+                                        <a href="urgences.html">
+                                            <img src="img/icon.png" class="itemimg2"/><br />
+                                            <p class="itemspan">Domi</p>
+                                        </a>
+                                    </div>
+        
+                                    <div class='item ovrid'>
+                                        <a href="urgences.html">
+                                            <img src="img/history.png" class="itemimg2"/><br />
+                                            <p class="itemspan">Historique</p>
+                                        </a>
+                                    </div>
+        
+                                    <div class='item ovrid'>
+                                        <a href="settings.html">
+                                            <img src="img/gears.png" class="itemimg2" id="gear2"/><br />
+                                            <p class="itemspan">Paramètres</p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="row fixedBottom">
+                                    <span id="seCo">© 2018 Djingo - Tous droits réservés</span>
+                                </div>
+                            </div>          
                     </div>
                 </div>
             </div>
@@ -159,13 +232,88 @@
         <script>
 
                 $(document).ready(function(){
+
+                    $('#seCoId').append("Votre ID : " + localStorage.getItem('id'));
+
                     if(localStorage.getItem('typeInscription') !== "senior"){
                         $('#panelsenior').hide();
                     }
-                    else if(ocalStorage.getItem('typeInscription') !== "famille"){
+                    else if(localStorage.getItem('typeInscription') !== "famille"){
                         $('#panelfamille').hide();
                     }
+
+                    if(localStorage.getItem('viewSenZ') == 1){
+
+                        $('#blocfamille').hide();
+                        $('#pnlhd').hide();
+                        $('#panelfamillenxt').show();
+
+                        localStorage.removeItem('viewSenZ');
+                        localStorage.removeItem('viewSen');
+                    }
+
+                    var iddd = localStorage.getItem('id');
+
+                    ajaxParent(iddd);
                 });
+
+                function ajaxParent(iddd){
+
+                    $.ajax({
+                        method: "POST",
+                        url: "http://antoine-lucas.fr/hackathon/get_parent.php",
+                        data: JSON.stringify({ id: iddd })
+                    })
+                    .done(function( msg ) {
+                        console.log(msg);
+
+                        $.each(msg, function(index){
+                            
+                            $('#blocfamille').prepend('<div class="newsenior">'+
+                                    '<img src="img/senior.jpg"/>'+
+                                    '<span style="font-size:14px;">'+$(this)[0].nickname+'</span>'+
+                                    '<br />'+
+                                    '<span>ID : '+$(this)[0].parent_key+'</span>'+
+                            '</div>');
+                        });
+
+
+                    });
+                }
+
+                $('#gear2').on('click', function(){
+
+                    var href = this.parent('a').href;
+
+                    event.preventDefault();
+
+                    localStorage.setItem('viewSen', 10);
+
+                    window.location = href;
+                });
+
+
+                $('.nv').on('click', function(){
+                    localStorage.setItem('seniorId', $(this).children('span')[1].id);
+
+                    $('#blocfamille').hide(1000);
+                    $('#pnlhd').hide(1000);
+                    $('#panelfamillenxt').show(1000);
+
+                    $('#micro').attr("src","img/user.png");
+                    $('#micro').parent('a').on('click', function(){
+
+                            event.preventDefault();
+
+                            $('#panelfamillenxt').hide(1000);
+                            $('#blocfamille').show(1000);
+                            $('#pnlhd').show(1000);
+
+                        });
+
+                });
+
+                
 
                 $('#prepnd').on('click', function(){
                     /*$('#blocfamille').prepend('<div class="newsenior">'+
@@ -183,14 +331,30 @@
 
                     event.preventDefault(); 
 
-                    console.log($('#imgS').val());
-
-                    if(! $('#nomS').val() || ! $('#idS').val() || ! $('#imgS').val()){
+                    if(! $('#nomS').val() || ! $('#idS').val()){
                         $('#verif').show();
                         return false;
                     }
 
+                    var nknm = $('#nomS').val();
+                    var idpr = $('#idS').val();
+                    var iddd = localStorage.getItem('id');
+
+                    console.log(nknm);
+                    console.log(idpr);
+                    console.log(iddd);
+
                     // Appel ajax envoyer photo / jonction / surname + récup en .ready les infos
+
+                     $.ajax({
+                            method: "POST",
+                            url: "http://antoine-lucas.fr/hackathon/add_parent.php",
+                            data: JSON.stringify({ id: iddd, idParent: idpr, nickname: nknm })
+                    })
+                    .done(function( msg, iddd ) {
+                        console.log(msg);
+                        ajaxParent(iddd);
+                    });
 
                     $('#blocform').hide(1000);
                     $('#blocfamille').show(1000);
