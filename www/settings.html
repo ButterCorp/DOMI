@@ -114,6 +114,10 @@
                     localStorage.setItem('Urg', $('#urg').val());
                 });
 
+                if(localStorage.getItem("Urg") !== null){
+                    $('#urg').val(localStorage.getItem("Urg"));
+                }
+
             });
 
         </script>
