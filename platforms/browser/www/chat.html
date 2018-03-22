@@ -409,14 +409,10 @@
                                 }
                                 else if(response.result.metadata.intentName == "Add Memo - Content"){
 
+
+
                                     var cont = response.result.parameters.content;
                                     var titl = response.result.parameters.title;
-
-                                    alert(JSON.stringify(response));
-
-                                    alert(id);
-                                    alert(titl);
-                                    alert(cont);
                                    
                                     $.ajax({
                                             method: "POST",
@@ -425,7 +421,7 @@
                                     })
                                     .done(function( msg ) {
                                         console.log(msg);
-                                        alert(msg);
+
                                     });
                                 }
 
