@@ -389,14 +389,6 @@
                                     "</div>" +
                                 "</div>");
 
-                                var substring = "<br>";
-
-                                if(reponse.indexOf(substring) !== -1){
-                                    alert(reponse);
-                                    reponse.replace(/<br>/g,"");
-                                    alert(reponse);
-                                }
-                                
                                 responsiveVoice.speak(reponse, "French Female");
                                 
 
@@ -452,8 +444,6 @@
                                         var number = "0650373934";
                                         var bypassAppChooser = false;
 
-                                        alert(number);
-
                                         window.plugins.CallNumber.callNumber(onSuccess, onError, number, bypassAppChooser);
 
                                         
@@ -478,8 +468,6 @@
 
                                             var number = localStorage.getItem('Urg');
                                             var bypassAppChooser = false;
-
-                                            alert(number);
 
                                             window.plugins.CallNumber.callNumber(onSuccess, onError, number, bypassAppChooser);
                                         }
@@ -509,11 +497,11 @@
                 }
 
                 function onSuccess(result){
-                    alert("Success:"+result);
+                    console.log("Success:"+result);
                 }
                     
                 function onError(result) {
-                    alert("Error:"+result);
+                    console.log("Error:"+result);
                 }
 
         </script>
