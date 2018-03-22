@@ -44,56 +44,109 @@
                 <a href="settings.html"><img src="img/gears.png" id="micro"/></a>
             </div>
 
-            <div class="date" style="text-align:center;margin-top:50px;">
-                    <span id="datetime2"></span><br />
-                    <span id="datetime"></span>
+            <div id="panelsenior">
+
+                    <div class="date" style="text-align:center;margin-top:50px;">
+                            <span id="datetime2"></span><br />
+                            <span id="datetime"></span>
+                    </div>
+                    
+                    <div class="container" style="text-align:center;margin-top:20px">  
+                        <div class="alert">Vous avez 2 nouveaux messages</div>
+        
+                        <div class="main">
+        
+                            <div class="row">
+                                <div class='item'>
+                                    <a href="chat.html">
+                                        <img src="img/assistance-orange.png" style="width:70px;margin-bottom:5px;"/><br />
+                                        <span>Djingo</span>
+                                    </a>
+                                </div>
+        
+                                <div class='item' style="margin-left:20px;">
+                                    <a href="memo.html">
+                                        <img src="img/task-orange.png" style="width:70px;margin-bottom:5px;"/><br />
+                                        <span>Mémo</span>
+                                    </a>
+                                </div>
+                            </div>
+        
+                            <div class="row" style="margin-top:20px;">
+                                <div class='item'>
+                                    <a href="">
+                                        <img src="img/agenda-orange.png" style="width:70px;margin-bottom:5px;"/><br />
+                                        <span>Rappel</span>
+                                    </a>
+                                </div>
+        
+                                <div class='item' style='background-color:#FF7900;margin-left:20px;'>
+                                    <a href="urgences.html">
+                                        <img src="img/siren.png" style="width:70px;margin-bottom:5px;"/><br />
+                                        <span>Sos</span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+        
+                        <div class="row fixedBottom">
+                            <span id="seCo">© 2018 Djingo - Tous droits réservés</span>
+                        </div>
+                            
+                    </div>
+
             </div>
+
+            <div id="panelfamille">
+                <div style="margin: 0 auto;margin-top:120px;width:60%;text-align:center;font-size:16px">
+                    <p>Sélectionnez la personne que vous souhaitez suivre.</p>
+                </div>
+                <div id="blocfamille">
+                    <div class="newsenior">
+                        <img src="img/senior.jpg"/>
+                        <span style="font-size:14px;">Papy Roger</span>
+                        <br />
+                        <span>ID : 101010101</span>
+                    </div>
+                    
+                    <div style="display: inline-block;" id="prepnd"> 
+                        <div class="newsenior" style="display:table-cell; vertical-align:middle; text-align:center">
+                            <img src="img/cross.png" id="cross"/>
+                            
+                        </div>
+                        <span>AJOUTER<br />UN SENIOR</span>
+                    </div>
+                    
+                </div>
+
+                <div class="container" style="text-align:center;display:none;" id="blocform"> 
+                    <div>
+                        <div class="row" id="verif">
+                            <span>Vous n'avez pas rempli correctement tout les champs.</span>
+                        </div>
             
-            <div class="container" style="text-align:center;margin-top:20px">  
-                <div class="alert">Vous avez 2 nouveaux messages</div>
-
-                <div class="main">
-
-                    <div class="row">
-                        <div class='item'>
-                            <a href="chat.html">
-                                <img src="img/assistance-orange.png" style="width:70px;margin-bottom:5px;"/><br />
-                                <span>Djingo</span>
-                            </a>
+                        <div class="row">
+                            <input type="text" id="nomS" class="inputInscription" placeholder="SURNOM"/>
+                        </div>
+            
+                        <div class="row">
+                            <input type="text" id="idS" class="inputInscription" placeholder="ID DU SENIOR"/>
+                        </div>
+            
+                        <div class="row">
+                            <input type="file" id="imgS" class="inputInscription" style="margin: 0 auto;margin-top: 30px;"/>
                         </div>
 
-                        <div class='item' style="margin-left:20px;">
-                            <a href="memo.html">
-                                <img src="img/task-orange.png" style="width:70px;margin-bottom:5px;"/><br />
-                                <span>Mémo</span>
-                            </a>
+                        <div class="row" style="margin-top:50px;">
+                            <a id="main_nav" href="" class="btnOrange" style="margin-bottom:20px;">VALIDER</a>
                         </div>
                     </div>
-
-                    <div class="row" style="margin-top:20px;">
-                        <div class='item'>
-                            <a href="">
-                                <img src="img/agenda-orange.png" style="width:70px;margin-bottom:5px;"/><br />
-                                <span>Rappel</span>
-                            </a>
-                        </div>
-
-                        <div class='item' style='background-color:#FF7900;margin-left:20px;'>
-                            <a href="urgences.html">
-                                <img src="img/siren.png" style="width:70px;margin-bottom:5px;"/><br />
-                                <span>Sos</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    
                 </div>
-
-                <div class="row fixedBottom">
-                    <span id="seCo">© 2018 Djingo - Tous droits réservés</span>
-                </div>
-                    
             </div>
+
+            
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -101,6 +154,35 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script>
 
+                $(document).ready(function(){
+                    if(localStorage.getItem('typeInscription') !== "senior"){
+                        $('#panelsenior').hide();
+                    }
+                    else if(ocalStorage.getItem('typeInscription') !== "famille"){
+                        $('#panelfamille').hide();
+                    }
+                });
+
+                $('#prepnd').on('click', function(){
+                    /*$('#blocfamille').prepend('<div class="newsenior">'+
+                        '<img src="img/senior.jpg"/>'+
+                        '<span style="font-size:14px;">Papy Roger</span>'+
+                        '<br />'+
+                        '<span>ID : 101010101</span>'+
+                   '</div>');*/
+
+                    $('#blocfamille').hide(1000);
+                    $('#blocform').show(1000);
+                });
+
+                 $('#main_nav').on('click', function(){
+
+                    event.preventDefault(); 
+
+                    $('#blocform').hide(1000);
+                    $('#blocfamille').show(1000);
+                
+                });
                 
 
 

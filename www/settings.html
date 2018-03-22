@@ -77,6 +77,28 @@
                 if(localStorage.getItem('autonomie') == 2){
                     $('#home').hide();
                 }
+
+                if(localStorage.getItem('smartphone') == 1){
+                    $('#smartphone').prop('checked', true);
+                }
+                else{
+                    $('#smartphone').prop('checked', false);
+                }
+
+                if(localStorage.getItem('sante') == 1){
+                    $('#sante').prop('checked', true);
+                }
+                else{
+                    $('#sante').prop('checked', false);
+                }
+
+                if(localStorage.getItem('vocal') == 1){
+                    $('#vocal').prop('checked', true);
+                }
+                else{
+                    $('#vocal').prop('checked', false);
+                }
+
             });
 
         </script>

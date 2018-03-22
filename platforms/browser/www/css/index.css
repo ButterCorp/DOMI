@@ -671,3 +671,38 @@ input.switch {
     opacity: 0;
   }
   
+
+  #blocfamille{
+      margin-top:50px;
+      padding: 25px;
+      text-align: center;
+  }
+
+  .newsenior{
+        width: 100px;
+        height: 100px;
+      background-color: rgb(241, 241, 241);
+      display: inline-block;
+      border-radius: 5px;
+      margin-left: 15px;
+      margin-right: 15px;
+  }
+
+  .newsenior img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .newsenior span{
+    font-size: 11px;
+  }
+
+  .marg{
+      margin-left: 30px;
+  }
+
+  #cross{
+      width:16px;
+      height:16px;
+  }
