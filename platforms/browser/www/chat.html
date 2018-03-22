@@ -419,7 +419,8 @@
                                     $.ajax({
                                             method: "POST",
                                             url: "http://antoine-lucas.fr/hackathon/insert_memo.php",
-                                            data: JSON.stringify({ user_key: id, title: titl, content: cont })
+                                            data: JSON.stringify({ user_key: id, title: titl, content: cont }),
+                                            resetContext:true
                                     })
                                     .done(function( msg ) {
                                         console.log(msg);

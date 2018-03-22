@@ -40,13 +40,6 @@
 
             $(document).ready(function(){
 
-                var d = new Date();
-                var n = d.getMinutes();
-                var h = d.getHours();
-
-                var day = d.getDate();
-                var month = d.getMonth();
-
                 var idd = localStorage.getItem('id');
 
                 console.log(idd);
@@ -62,11 +55,28 @@
 
                     console.log(msg[0][1]);
 
-                     $('.chat-message.padding').append("<div class='chat-message chat-message-recipient'>" +
+
+                    $.each(msg, function(){
+
+
+                        var d = $(this)[0][4];
+                        d = d.split(' ');
+                        
+                        dd = d[1].split(':');
+
+                        ddd = d[0].split('-');
+
+                        var n = dd[1];
+                        var h = dd[0];
+
+                        var day = ddd[2];
+                        var month = ddd[1];
+
+                        $('.chat-message.padding').append("<div class='chat-message chat-message-recipient'>" +
 
                         "<div class='chat-message-wrapper'>" +
                         "<div class='chat-message-content'>" +
-                            "<p>"+msg[0][1]+"<br />"+msg[0][2]+"</p>" +
+                            "<p>"+$(this)[0][1]+"<br />"+$(this)[0][2]+"</p>" +
                         "</div>" +
 
                         "<div class='chat-details'>" +
@@ -76,6 +86,9 @@
 
                         "</div>" +
                         "</div>");
+                    });
+
+                     
 
                 });
             });
