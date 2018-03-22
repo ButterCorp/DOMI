@@ -389,13 +389,13 @@
                                     "</div>" +
                                 "</div>");
 
-                                var url = window.location.href;
-                                var substring = "memo.html";
+                                var substring = "<br>";
 
-                                if(url.indexOf(substring) === -1){
-                                    responsiveVoice.speak(reponse, "French Female");
+                                if(reponse.indexOf(substring) !== -1){
+                                    reponse.replace(/<br>/g,'');
                                 }
-
+                                
+                                responsiveVoice.speak(reponse, "French Female");
                                 
 
                                 var wtf = $('#chatsc');
