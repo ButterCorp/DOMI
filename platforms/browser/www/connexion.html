@@ -69,6 +69,8 @@
 
                     localStorage.setItem('id', msg["Key"]);
 
+                    localStorage.setItem('typeInscription', msg["Status"]);
+
                     if(msg['Response'] == 'Valid user'){
                         localStorage.setItem('connect', 1);
                         window.location = href;
