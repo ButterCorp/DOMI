@@ -220,6 +220,20 @@
                                 var height = wtf[0].scrollHeight;
                                 console.log(height);
                                 wtf.scrollTop(height);
+
+
+                                if(response.result.metadata.intentName == "Feeling Sick"){
+
+                                    $.ajax({
+                                            method: "POST",
+                                            url: "http://antoine-lucas.fr/hackathon/insert_message.php",
+                                            data: JSON.stringify({ user_key: id, status: "Alerte", content: query_text })
+                                    })
+                                    .done(function( msg, iddd ) {
+                                        console.log(msg);
+                                    });
+                                }
+
                             },
                             function (error) {
                                 
@@ -306,6 +320,19 @@
                                 var wtf = $('#chatsc');
                                 var height = wtf[0].scrollHeight;
                                 wtf.scrollTop(height);
+
+                                if(response.result.metadata.intentName == "Feeling Sick"){
+
+
+                                    $.ajax({
+                                            method: "POST",
+                                            url: "http://antoine-lucas.fr/hackathon/insert_message.php",
+                                            data: JSON.stringify({ user_key: id, status: "Alerte", content: texte })
+                                    })
+                                    .done(function( msg, iddd ) {
+                                        console.log(msg);
+                                    });
+                                }
 
                         },
                         function (error) {
