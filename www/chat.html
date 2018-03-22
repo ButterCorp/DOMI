@@ -395,8 +395,6 @@
                                 var height = wtf[0].scrollHeight;
                                 wtf.scrollTop(height);
 
-                                alert(JSON.stringify(response));
-
                                 if(response.result.metadata.intentName == "Feeling Sick"){
 
 
@@ -409,10 +407,10 @@
                                         console.log(msg);
                                     });
                                 }
-                                else if(response.result.metadata.intentName == "Memo - Content"){
+                                else if(response.result.metadata.intentName == "Add Memo - Content"){
 
-                                    alert(response.result.context[0].intentName);
-                                    alert(response.result.context);
+                                    alert(response.result.parameters.content);
+                                    alert(response.result.parameters.title);
                                    
                                     /*$.ajax({
                                             method: "POST",
