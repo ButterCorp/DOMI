@@ -71,6 +71,10 @@
 
                     localStorage.setItem('typeInscription', msg["Status"]);
 
+                    if(msg["Status"] == "famille"){
+                        localStorage.setItem('smartphone', 1);
+                    }
+
                     if(msg['Response'] == 'Valid user'){
                         localStorage.setItem('connect', 1);
                         window.location = href;
