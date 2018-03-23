@@ -410,12 +410,13 @@
 
 
                                 }
-                                else if(response.result.metadata.intentName == "Add Memo - Content"){
+                                else if(response.result.metadata.intentName == "Add Memo - title - content"){
 
 
 
                                     var cont = response.result.parameters.content;
                                     var titl = response.result.parameters.title;
+
                                    
                                     $.ajax({
                                             method: "POST",
